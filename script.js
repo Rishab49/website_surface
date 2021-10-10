@@ -5,8 +5,6 @@ let currentSlide = 0;
 var elem;
 
 
-
-
 const menu_icon = document.getElementsByClassName('menu-icon')[0];
 const menu_section = document.getElementsByClassName("menu-section")[0];
 const menu_list = document.getElementsByClassName("menu-list")[0];
@@ -16,16 +14,18 @@ let isClicked =false;
 
 
 function detectPosition(){
-    let currentHeight = window.innerHeight;
-    let currentWidth = window.innerWidth;
-    let elementHeight=window.getComputedStyle(menu_icon).getPropertyValue("height");
-    let elementWidth=window.getComputedStyle(menu_icon).getPropertyValue("width");
-    let elementHeightValue =elementHeight.match(valRegEx)[0];
-    let elementWidthValue = elementWidth.match(valRegEx)[0];
-    console.log(elementHeightValue);
-    menu_icon.style.top=((currentHeight/100) * 90)-(elementHeightValue/2)+"px";
-    menu_icon.style.left=((currentWidth/100) * 95)-(elementWidthValue)+"px";
-    container.style.transform="translateX("+(((currentWidth/2)-160))+"px)";
+    
+        let currentHeight = window.innerHeight;
+        let currentWidth = window.innerWidth;
+        let elementHeight=window.getComputedStyle(menu_icon).getPropertyValue("height");
+        let elementWidth=window.getComputedStyle(menu_icon).getPropertyValue("width");
+        let elementHeightValue =elementHeight.match(valRegEx)[0];
+        let elementWidthValue = elementWidth.match(valRegEx)[0];
+        // console.log(elementHeightValue);
+        menu_icon.style.top=((currentHeight/100) * 90)-(elementHeightValue/2)+"px";
+        menu_icon.style.left=((currentWidth/100) * 95)-(elementWidthValue)+"px";
+        container.style.transform="translateX("+(((currentWidth/2)-160))+"px)";
+   
 }
 window.addEventListener("load",function(){
 detectPosition();
@@ -50,7 +50,7 @@ $(".nav_button.left-button").on("click",function(){
         let val = window.getComputedStyle(TESTIMONIALS_CONTAINER[0]).getPropertyValue("transform");
         var numericValue = new WebKitCSSMatrix(val);
         $(TESTIMONIALS_CONTAINER[0]).css("transform",'matrix(1, 0, 0, 1,'+ (numericValue.e - 332)+', 0)');
-        console.log(numericValue);
+        // console.log(numericValue);
         currentSlide++;
     }
 })
@@ -62,7 +62,7 @@ $(".nav_button.right-button").on("click",function(){
         let val = window.getComputedStyle(TESTIMONIALS_CONTAINER[0]).getPropertyValue("transform");
         var numericValue = new WebKitCSSMatrix(val);
         $(TESTIMONIALS_CONTAINER[0]).css("transform",'matrix(1, 0, 0, 1,'+ (numericValue.e + 332)+', 0)');
-        console.log(numericValue);
+        // console.log(numericValue);
         currentSlide--;
     }
 
