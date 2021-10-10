@@ -1,0 +1,32 @@
+.navbar{
+    position:fixed;
+    height:10vh;
+    width:100vw;
+    top:0;
+    left:0;
+    z-index:10;
+    padding:var(--gap-micro) var(--gap-med) var(--gap-micro) var(--gap-max)
+}
+
+ .logo{
+    height:100%;
+    flex:1;
+    font-family: "Playfair Display";
+}
+.logo h1{
+    font-size: clamp(1.5rem , 2vw, 2rem);
+}
+
+
+
+
+/*media query*/
+
+@media (max-width:768px) {
+    .navbar{
+        padding:var(--gap-micro) var(--gap-min) var(--gap-micro) var(--gap-min)
+    }
+    .logo{
+        justify-content: flex-start;
+    }
+}
